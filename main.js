@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('headLine').innerText=message;
     ftch();
     async function ftch(){
-    fetch('http://dataservice.accuweather.com/locations/v1/search?q=' + message + '&apikey=A5yCaCoGAw7cAZj3IfziN3Tju6MUNNA7')
+    fetch('https://dataservice.accuweather.com/locations/v1/search?q=' + message + '&apikey=A5yCaCoGAw7cAZj3IfziN3Tju6MUNNA7')
         .then(response => response.json())
         .then(data => {
             locationKey = data[0].Key;
-            fetch("http://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=A5yCaCoGAw7cAZj3IfziN3Tju6MUNNA7&language=en-us&details=true&metric=true")
+            fetch("https://dataservice.accuweather.com/forecasts/v1/daily/5day/" + locationKey + "?apikey=A5yCaCoGAw7cAZj3IfziN3Tju6MUNNA7&language=en-us&details=true&metric=true")
                 .then(response => response.json())
                 .then(data => {
                     dataUpdater(data);
